@@ -1,0 +1,140 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "voda code",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "RepositoryIntent",
+          "slots": [
+            {
+              "name": "repository",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "use {repository}",
+            "use {repository}",
+            "use {repository} repo",
+            "use {repository} repository",
+            "use the {repository} repo",
+            "use the {repository} repository"
+          ]
+        },
+        {
+          "name": "CommitIntent",
+          "slots": [
+            {
+              "name": "count",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "last commit",
+            "latest commit",
+            "most recent commit",
+            "list {count} commits",
+            "list the last {count} commits",
+            "list the most recent {count} commits"
+          ]
+        },
+        {
+          "name": "PullRequestIntent",
+          "slots": [
+            {
+              "name": "query",
+              "type": "QUERY_TYPE"
+            },
+            {
+              "name": "status",
+              "type": "STATUS_TYPE"
+            },
+            {
+              "name": "time",
+              "type": "TIME_TYPE"
+            }
+          ],
+          "samples": [
+            "{query} {time} {status} prs",
+            "{query} {time} {status} pull requests"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "name": "QUERY_TYPE",
+          "values": [
+            {
+              "name": {
+                "value": "count",
+                "synonyms": ["how many", "number of"]
+              }
+            },
+            {
+              "name": {
+                "value": "list",
+                "synonyms": ["list ", "list the", "what is the", "what's the"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "STATUS_TYPE",
+          "values": [
+            {
+              "name": {
+                "value": "abandoned",
+                "synonyms": ["cancelled"]
+              }
+            },
+            {
+              "name": {
+                "value": "active",
+                "synonyms": ["open"]
+              }
+            },
+            {
+              "name": {
+                "value": "completed",
+                "synonyms": ["closed"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TIME_TYPE",
+          "values": [
+            {
+              "name": {
+                "value": "newest",
+                "synonyms": ["first", "most recent"]
+              }
+            },
+            {
+              "name": {
+                "value": "oldest",
+                "synonyms": ["last"]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "version": "1"
+}
